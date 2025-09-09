@@ -1,0 +1,134 @@
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Selection of Home Made Accessories</title>  
+  <style>  
+    body {  
+      font-family: Arial, sans-serif;  
+      background: #f0f2f5;  
+      display: flex;  
+      flex-direction: column;  
+      justify-content: center;  
+      align-items: center;  
+      min-height: 100vh;  
+      margin: 0;  
+    }  
+    .card, .contact, .skills {  
+      background: white;  
+      padding: 20px 40px;  
+      border-radius: 12px;  
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);  
+      text-align: center;  
+      margin-bottom: 20px;  
+      max-width: 600px;  
+    }  
+    h1, h2, h3 {  
+      color: #8b4513;  
+    }  
+    p, li {  
+      font-size: 16px;  
+      color: #444;  
+      margin: 8px 0;  
+      text-align: left;  
+    }  
+    ul {  
+      list-style-type: square;  
+      padding-left: 20px;  
+    }  
+    .accessories {  
+      display: flex;  
+      flex-wrap: wrap;  
+      justify-content: center;  
+      gap: 15px;  
+      margin-top: 15px;  
+    }  
+    .item {  
+      background: #ffe4c4;  
+      padding: 12px 18px;  
+      border-radius: 8px;  
+      font-size: 16px;  
+      font-weight: bold;  
+      color: #333;  
+      cursor: pointer;  
+      transition: 0.3s;  
+    }  
+    .item:hover {  
+      background: #ffdab9;  
+      transform: scale(1.05);  
+    }  
+    .selected {  
+      background: #8b4513;  
+      color: white;  
+    }  
+    #selectedItems {  
+      margin-top: 15px;  
+      font-size: 18px;  
+      font-weight: bold;  
+      color: #222;  
+    }  
+    .contact a {  
+      color: #8b4513;  
+      text-decoration: none;  
+      font-weight: bold;  
+    }  
+    .contact a:hover {  
+      text-decoration: underline;  
+    }  
+  </style>  
+</head>  
+<body>  
+  <!-- Homemade Accessories Selection -->  
+  <div class="card">  
+    <h1>Selection of Home Made Accessories</h1>  
+    <p>Click on the accessories you like to add them to your selection:</p>  
+    <div class="accessories">  
+      <div class="item" onclick="toggleSelection(this)">Handmade Necklace</div>  
+      <div class="item" onclick="toggleSelection(this)">Beaded Bracelet</div>  
+      <div class="item" onclick="toggleSelection(this)">Knitted Scarf</div>  
+      <div class="item" onclick="toggleSelection(this)">Hand-painted Mug</div>  
+      <div class="item" onclick="toggleSelection(this)">Bamboo Basket</div>  
+      <div class="item" onclick="toggleSelection(this)">Crochet Bag</div>  
+    </div>  
+    <div id="selectedItems">Selected: None</div>  
+  </div>  
+
+  <!-- Contact Me Section -->  
+  <div class="contact">  
+    <h2>Contact Me</h2>  
+    <p><strong>Name:</strong> Logakishore M</p>  
+    <p><strong>Email:</strong>   
+      <a href="mailto:24bsit232logakishorem@skacas.ac.in">24bsit232logakishorem@skacas.ac.in</a>  
+    </p>  
+  </div>  
+
+  <!-- Skills Section -->  
+  <div class="skills">  
+    <h3>Skills Implemented</h3>  
+    <ul>  
+      <li>HTML5 for structuring the webpage.</li>  
+      <li>CSS3 for styling, layout design, and hover effects.</li>  
+      <li>JavaScript for interactivity and dynamic selection updates.</li>  
+      <li>Flexbox for responsive alignment and layout.</li>  
+      <li>UI/UX principles for clean and user-friendly design.</li>  
+    </ul>  
+  </div>  
+
+  <script>  
+    let selected = [];  
+
+    function toggleSelection(element) {  
+      const item = element.textContent;  
+      if (selected.includes(item)) {  
+        // remove if already selected  
+        selected = selected.filter(i => i !== item);  
+        element.classList.remove("selected");  
+      } else {  
+        // add new item  
+        selected.push(item);  
+        element.classList.add("selected");  
+      }  
+      document.getElementById("selectedItems").textContent =  
+        selected.length > 0 ? "Selected: " + selected.join(", ") : "Selected: None";  
+    }  
+  </script>  
+</body>
